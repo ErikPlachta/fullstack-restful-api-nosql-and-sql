@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erik Plachta | Social Network API - NoSQL</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Social Netowrk API - NoSQL </h1>
+    <p id="about">
+      API Built on MongoDB Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora, nobis voluptas. Explicabo laboriosam voluptates exercitationem velit autem dolore fugiat quae maiores suscipit ab! Ipsum, labore voluptatum? Unde ad libero sapiente.
+    </p>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}<a href="/profile" id="profile"><img src="{{url}}" alt="{{title}}">  Profile</a>{{/if}}
+    {{#if loggedIn}}<a id="logout">Logout</a>
+    {{else}}<a href="/login">Login</a>{{/if}}
+    
+  </nav>
+  <!-- Trigger/Open The Modal -->
+
+  <main>
+    {{!-- loading left sidebar --}}
+    {{> activity-feed}}
+    {{!-- Main area --}}
+    <div class="landing">
+      {{{body}}}
+    </div>
+  </main>
+  
+  <!-- If the user is logged in, load the JS script for if clicked logout btn -->
+  {{#if loggedIn}}<script src="/js/logout.js"></script>{{/if}}
+
